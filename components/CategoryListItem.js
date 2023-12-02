@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity ,Alert} from "react-native";
 
 export default function CategoryListItem(props) {
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handlePress = () => {
+    setIsPressed(!isPressed);
+  };
   return (
-    <TouchableOpacity activeOpacity={0.2} onPress={()=>{
+    <TouchableOpacity 
+    style={[styles.button, { backgroundColor: isPressed ? 'red' : 'blue' }]}
+    activeOpacity={0.2} onPress={()=>{
         Alert.alert('Click cc!');
     }}>
       <View style={styles.container}>
